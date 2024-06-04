@@ -20,6 +20,13 @@ const mongoSchema = mongoose.Schema({
 
 const Characters = mongoose.model('character', mongoSchema);
 
+router.get('/dummyapi', (req, res) => {
+    res.status(200).send({
+        StatusCode: "400",
+        ErrorCode: "Failed to fetch data due to invalid parameters"
+    })
+})
+
 router.get('/', (req,res) => {
     async function getCharacters() {
         const chars = await Characters.find();
